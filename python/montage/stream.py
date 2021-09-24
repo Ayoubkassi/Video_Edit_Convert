@@ -36,23 +36,23 @@ import cv2
 # final_clip.write_videofile("final.mp4")
 
 #cv2 soluction
+def edit_my_videos():
+    fps = 30
+    resolution = (1366,768)
 
-fps = 30
-resolution = (1366,768)
-
-videos = ["./work/speed0.mp4","./videos/reagan1.mp4","./work/speed1.mp4","./videos/reagan2.mp4"]
-video = cv2.VideoWriter("new_video.mp4", cv2.VideoWriter_fourcc(*"MPEG"), fps, resolution)
+    videos = ["./work/speed0.mp4","./videos/reagan1.mp4","./work/speed1.mp4","./videos/reagan2.mp4"]
+    video = cv2.VideoWriter("new_video.mp4", cv2.VideoWriter_fourcc(*"MPEG"), fps, resolution)
 
 
-for v in videos:
-    curr_v = cv2.VideoCapture(v)
-    while curr_v.isOpened():
-        r, frame = curr_v.read()    # Get return value and curr frame of curr video
-        if not r:
-            break
-        video.write(frame)          # Write the frame
+    for v in videos:
+        curr_v = cv2.VideoCapture(v)
+        while curr_v.isOpened():
+            r, frame = curr_v.read()    # Get return value and curr frame of curr video
+            if not r:
+                break
+            video.write(frame)          # Write the frame
 
-video.release()
+    video.release()
 
 
 
@@ -74,6 +74,21 @@ def changevideo_res():
     cap.release()
     out.release()
     cv2.destroyAllWindows()
+
+
+
+def add_music():
+    video1 = VideoFileClip('tyaaaba.mp4')
+    audio = AudioFileClip('./music/nightlife.mp3')
+    final = video1.set_audio(audio)
+    final.write_videofile("tyaaba_with_music.mp4")
+
+    return
+
+
+add_music()
+
+
 
 
 
