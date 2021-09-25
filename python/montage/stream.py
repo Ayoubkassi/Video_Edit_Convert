@@ -28,6 +28,17 @@ def changevideo_res_speed(video,output):
 
 #################################################################
 
+
+
+def rotate(video):
+    clip = VideoFileClip(video)
+    clip = clip.rotate(-90)
+    clip.write_videofile("rotate.mp4")
+
+
+rotate('./videos/4.mp4')
+
+
 #speed_num = int(input("Enter the speed of your videos : "))
 #
 # videos_arr   =  []
@@ -144,7 +155,7 @@ def add_music(video,audio):
 
     return
 
-add_music('me.mp4','./music/fiji.mp3')
+#add_music('me.mp4','./music/fiji.mp3')
 
 ##################################################################
 
